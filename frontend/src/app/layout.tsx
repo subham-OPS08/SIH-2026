@@ -52,6 +52,7 @@ export const metadata: Metadata = {
   },
 };
 
+import { Suspense } from "react";
 import { Navbar } from "@/src/app/components/Navbar";
 import { FloatingYatraAI } from "@/src/app/components/FloatingYatraAI";
 import { TravelAlertProvider } from "@/src/context/TravelAlertContext";
@@ -94,7 +95,9 @@ export default function RootLayout({
             {/* Global event-driven travel emergency alert system */}
             <GlobalTravelAlert />
             {/* Persistent Yatra AI companion floating across all pages in bottom right */}
-            <FloatingYatraAI />
+            <Suspense fallback={null}>
+              <FloatingYatraAI />
+            </Suspense>
           </div>
         </TravelAlertProvider>
       </body>

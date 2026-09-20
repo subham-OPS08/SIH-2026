@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { aiService } from "@/src/services/aiService";
 import type { AIMessage } from "@/src/types";
 import { linkifyPlaces, findPlaceForHeading, QuickPlaceRedirectionStrip } from "./ai/placeNavigation";
@@ -31,12 +32,10 @@ export function FloatingYatraAI() {
   }, []);
 
   // Close overlay on route change
-  const { usePathname, useSearchParams } = require('next/navigation');
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   useEffect(() => {
     setIsOpen(false);
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   // Auto-scroll to bottom of conversation
   useEffect(() => {

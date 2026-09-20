@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { VERIFIED_DESTINATIONS } from "@/src/lib/fixtures";
 import { VERIFIED_BOOKING_REGISTRY, UT_ESSENTIALS, BookingServiceCategory, getTourHQUrl } from "@/src/lib/bookingProviders";
-import { FloatingYatraAI } from "@/src/app/components/FloatingYatraAI";
 
 import Image from "next/image";
 import { Plane, Bed, Train, Car, Users, Landmark, ArrowRight } from "lucide-react";
@@ -611,8 +610,6 @@ export function BookingsContent() {
 
         </section>
       )}
-
-      <FloatingYatraAI />
     </main>
   );
 }
