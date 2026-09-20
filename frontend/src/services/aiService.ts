@@ -187,7 +187,7 @@ export const aiService = {
       success: true,
       data: {
         proposal: {
-          territoryId: params.territoryId,
+          territoryId: params.territoryId as any,
           days: [],
           title: `${params.durationDays}-Day Verified Tour`,
           summary: `Curated ${params.travelStyle.toLowerCase()} itinerary across ${params.territoryId}.`,
