@@ -80,6 +80,25 @@ export default function RootLayout({
     <html lang="en" data-theme="light" className={`${cormorant.variable} ${dmSans.variable} ${caveat.variable} ${dmSans.className}`}>
       <head>
         <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var stored = localStorage.getItem("bsy_theme");
+                if (stored === "dark") {
+                  document.documentElement.setAttribute("data-theme", "dark");
+                } else {
+                  document.documentElement.setAttribute("data-theme", "light");
+                  if (!stored) {
+                    localStorage.setItem("bsy_theme", "light");
+                  }
+                }
+              } catch(e) {
+                document.documentElement.setAttribute("data-theme", "light");
+              }
+            `,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />

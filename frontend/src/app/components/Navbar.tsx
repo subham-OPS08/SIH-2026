@@ -82,6 +82,9 @@ export function Navbar() {
     if (savedTheme === "dark") {
       setIsDark(true);
       document.documentElement.setAttribute("data-theme", "dark");
+    } else {
+      setIsDark(false);
+      document.documentElement.setAttribute("data-theme", "light");
     }
 
     const handleScroll = () => {
